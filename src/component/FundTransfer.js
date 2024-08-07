@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import AppBar from "./common/AppBar";
 import { transferFund } from "./redux/reducer/bankReducer";
 import { useNavigate } from "react-router-dom";
@@ -51,7 +51,7 @@ const FundTransfer = () => {
       (account) => account !== currentUser.account
     );
     setToBankAccounts(filteredAccount);
-  }, [currentUser.account]);
+  }, [currentUser.account, users]);
   return (
     <>
       <AppBar />

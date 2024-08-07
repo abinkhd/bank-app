@@ -32,7 +32,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
      "server": "npx json-server --watch --port 5000 db.json",
-    "startAll": "concurrently \"npm start\" \"npm run server\""
+    "startAll": "concurrently \"npm start\" \"npm run server\"",
+    "buildAll": "concurrently \"npx serve -s build\" \"npm run server\""
   },
   "eslintConfig": {
     "extends": [

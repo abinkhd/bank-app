@@ -18,6 +18,6 @@ export const useUsers = () => {
   };
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [users]);
   return users;
 };

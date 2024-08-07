@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import LockIcon from "@mui/icons-material/Lock";
 import { Typography } from "@mui/material";
 import AppBar from "./common/AppBar";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getUser } from "./redux/reducer/bankReducer";
 import Footer from "./common/Footer";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +25,7 @@ const Login = () => {
     e.preventDefault();
     dispatch(getUser(input));
     const user = users?.find(
-      (u) => u.username === input.username && u.password == input.password
+      (u) => u.username === input.username && u.password === input.password
     );
 
     if (user) {

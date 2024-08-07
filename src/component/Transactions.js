@@ -26,7 +26,7 @@ const Transactions = () => {
     const token = JSON.parse(localStorage.getItem("token"));
     setCurrentUser(token);
     fetchTransaction();
-  }, [transactions]);
+  }, [transactions, fetchTransaction()]);
   return (
     <div>
       <AppBar />

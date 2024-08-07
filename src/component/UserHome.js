@@ -11,14 +11,13 @@ import { useUsers } from "./hooks/useUsers";
 
 const UserHome = () => {
   useUsers();
-  const [currentUser, setCurrentUser] = useState({});
   const currBalance = useSelector((state) => state.currentUser?.balance);
   const [balance, setBalance] = useState("xxxxx");
   const [isBalanceVisible, setBalanceVisible] = useState(false);
   const dispatch = useDispatch();
   const [personal, setPersonal] = useState({});
   const handleShowBalance = () => {
-    if (isBalanceVisible == false) {
+    if (isBalanceVisible === false) {
       setBalance(currBalance);
       setBalanceVisible(true);
     } else {
@@ -49,7 +48,6 @@ const UserHome = () => {
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
-    setCurrentUser(token);
     setPersonal(token);
   }, []);
   return (
