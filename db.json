@@ -1,0 +1,123 @@
+{
+  "users": [
+    {
+      "id": "18123456701",
+      "username": "user1",
+      "password": "password1",
+      "phone": "8921537583",
+      "name": "Abhin Krishna ",
+      "address": {
+        "houseNo": "#26",
+        "streetAddress": "Majunatha Layout,Victorian Meadow,Munnekollal,560037"
+      },
+      "IFSC": "SSB002",
+      "Branch": "Whitefeild",
+      "account": 18123456701,
+      "currency": "INR",
+      "balance": 9000
+    },
+    {
+      "id": "18123456702",
+      "username": "user2",
+      "password": "password2",
+      "phone": 5454353343,
+      "name": "Rakesh",
+      "address": {
+        "houseNo": "#98",
+        "streetAddress": "Princess Street Linden, NJ 07036"
+      },
+      "IFSC": "SSB002",
+      "Branch": "Bellandur",
+      "account": 18123456702,
+      "currency": "INR",
+      "balance": 11000
+    },
+    {
+      "id": "18123456703",
+      "username": "user4",
+      "password": "password3",
+      "name": "Swetha",
+      "address": {
+        "houseNo": "#9",
+        "streetAddress": "Vermont Road Cockeysville, MD 21030"
+      },
+      "phone": 8192716231,
+      "IFSC": "SSB001",
+      "Branch": "Kormangala",
+      "account": 18123456703,
+      "currency": "INR",
+      "balance": 35000
+    },
+    {
+      "id": "18123456704",
+      "username": "user4",
+      "password": "password4",
+      "name": "Krishna",
+      "address": {
+        "houseNo": "#23",
+        "streetAddress": "Windsor St. Fuquay Varina, NC 27526"
+      },
+      "phone": 3319202919,
+      "IFSC": "SSB001",
+      "Branch": "Whitefeild",
+      "account": 18123456704,
+      "currency": "INR",
+      "balance": 30000
+    },
+    {
+      "id": "18123456705",
+      "username": "user5",
+      "password": "password5",
+      "phone": 81273123123,
+      "name": "Yajna",
+      "address": {
+        "houseNo": "#29",
+        "streetAddress": "Iroquois Street Southgate, MI 48195"
+      },
+      "IFSC": "SSB002",
+      "Branch": "Electronic City",
+      "account": 18123456705,
+      "currency": "INR",
+      "balance": 200000
+    },
+    {
+      "id": "18123456706",
+      "username": "user6",
+      "password": "password6",
+      "phone": 8632123612,
+      "name": "Asif",
+      "address": {
+        "houseNo": "#42",
+        "streetAddress": "West Street Ashland, OH 44805"
+      },
+      "IFSC": "SSB002",
+      "Branch": "Indiranagar",
+      "account": 18123456706,
+      "currency": "INR",
+      "balance": 1200
+    }
+  ],
+  "transactions": [
+    {
+      "id": "ee21",
+      "userId": "18123456701",
+      "fromAcc": 18123456701,
+      "toAcc": 18123456702,
+      "amount": 1000
+    },
+    {
+      "id": "80bb",
+      "userId": "18123456701",
+      "fromAcc": 18123456701,
+      "toAcc": 18123456702,
+      "amount": 1000
+    },
+    {
+      "id": "6585",
+      "userId": "18123456702",
+      "fromAcc": 18123456702,
+      "toAcc": 18123456701,
+      "amount": 1000
+    }
+  ]
+}

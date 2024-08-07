@@ -1,0 +1,152 @@
+.navbar {
+  display: flex;
+  height: 60px;
+  background-color: #384454;
+  justify-content: space-between;
+  color: aliceblue;
+  font-family: initial;
+}
+@media (max-width: 1200px) {
+  .navbar {
+    width: 100%;
+  }
+  .footer {
+    width: 100%;
+  }
+  .slideshow-container .slide img {
+    width: 50%;
+  }
+  .container {
+    width: 80%;
+  }
+  .login-div {
+    width: 80%;
+  }
+  .login-form {
+    width: 50%;
+  }
+}
+.nav-user {
+  margin: 20px;
+}
+.nav-user label {
+  margin-right: 20px;
+}
+.footer {
+  height: 30px;
+  background-color: #343d48;
+  color: aliceblue;
+  margin-top: 80px;
+  padding: 15px;
+}
+.footer-label {
+  font-size: small;
+  font-family: "fangsong";
+}
+.footer-link-label {
+  margin-left: 20px;
+}
+.footer-link-label:hover {
+  text-decoration: underline;
+}
+.authButton {
+  margin: 30px 15px 0px 0px;
+}
+.authButton:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.logo {
+  margin: 30px 0px 0px 15px;
+}
+.container {
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  height: 400px;
+}
+.slide {
+  vertical-align: middle;
+  animation-name: none;
+  width: 1020px;
+  height: 240px;
+  margin: 50px 100px 0px 85px;
+}
+.slide img {
+  width: 1100px;
+  height: 320px;
+}
+.login-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin: 80px 0 0 470px;
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2),
+    2px 2px 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+}
+.login-form {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-form * {
+  margin-bottom: 20px;
+}
+.login-form h6 {
+  color: #384454;
+  font-family: unset;
+}
+input {
+  height: 30px;
+}
+select {
+  height: 35px;
+  width: 170px;
+}
+
+button {
+  color: white;
+  background-color: #384454;
+  border: #424e5d;
+  width: 90px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.account-details {
+  position: relative;
+  left: 370px;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  margin-bottom: 20px;
+}
+.account-details p,
+h6 {
+  padding: 1px 0px 8px 0px;
+  position: relative;
+  text-align: center;
+  font-family: monospace;
+}
+.edit-icon {
+  position: relative;
+  left: 230px;
+  top: -30px;
+}
+.edit-icon:hover {
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px 1px#343d48, 2px 1px 2px 1px #434e5b;
+}
+.nav-user > .appbarMenu {
+  background-color: #384454;
+  color: aliceblue;
+}
