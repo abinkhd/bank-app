@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-     "server": "npx json-server --watch --port 5000 db.json",
+     "server": "npx json-server --watch --port 5001 db.json",
     "startAll": "concurrently \"npm start\" \"npm run server\"",
     "buildAll": "concurrently \"npx serve -s build\" \"npm run server\""
   },
