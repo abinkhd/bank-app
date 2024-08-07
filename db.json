@@ -97,7 +97,7 @@
       "balance": 1200
     }
   ],
-  "transactions": [
+  "api/transactions": [
     {
       "id": "ee21",
       "userId": "18123456701",

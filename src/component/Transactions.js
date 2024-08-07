@@ -12,9 +12,9 @@ import axios from "axios";
 const Transactions = () => {
   const [transactions, setTransactions] = React.useState([]);
   const [currentUser, setCurrentUser] = React.useState({});
-
+  const URL = process.env.REACT_APP_API_URL;
   const fetchTransaction = async () => {
-    const response = await axios.get("http://localhost:5000/transactions");
+    const response = await axios.get(`${URL}/transactions`);
     setTransactions(
       response.data.filter(
         (data) => data.userId === currentUser.id || data.toAcc == currentUser.id
