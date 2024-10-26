@@ -7,10 +7,8 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import EditIcon from "@mui/icons-material/Edit";
 import Popup from "reactjs-popup";
 import { updateUser } from "./redux/reducer/bankReducer";
-import { useUsers } from "./hooks/useUsers";
 
 const UserHome = () => {
-  useUsers();
   const currBalance = useSelector((state) => state.currentUser?.balance);
   const [balance, setBalance] = useState("xxxxx");
   const [isBalanceVisible, setBalanceVisible] = useState(false);
@@ -83,8 +81,7 @@ const UserHome = () => {
                   value={personal?.address?.houseNo}
                   onChange={handlePersonalChange}
                 />
-                <input
-                  type="textarea"
+                <textarea
                   name="streetAddress"
                   value={personal?.address?.streetAddress}
                   placeholder="Street Addresss"

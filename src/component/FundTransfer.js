@@ -4,16 +4,11 @@ import { useDispatch } from "react-redux";
 import AppBar from "./common/AppBar";
 import { transferFund } from "./redux/reducer/bankReducer";
 import { useNavigate } from "react-router-dom";
-import { useUsers } from "./hooks/useUsers";
 import usersContext from "./context/usersContext";
 
 const FundTransfer = () => {
-  useUsers();
   const [currentUser, setCurrentUser] = useState({});
-  // const { users } = useSelector((state) => state);
   const users = useContext(usersContext);
-  // const users = useUsers();
-  // console.log(users);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [toBankAccounts, setToBankAccounts] = useState([]);
@@ -55,33 +50,35 @@ const FundTransfer = () => {
   return (
     <>
       <AppBar />
-      <div className="login-div">
-        <form className="login-form" onSubmit={handleSubmit}>
-          <Typography variant="h6">Transfer Fund</Typography>
-          <input
-            placeholder="From Account"
-            value={transfer.fromAcc}
-            disabled
-            name="fromAcc"
-          />
-          <select required name="toAcc" onChange={handleChange}>
-            <option value="" disabled selected>
-              To Account
-            </option>
-            {toBankAccounts?.map((account) => (
-              <option key={account} value={account}>
-                {account}
+      <div className="container">
+        <div className="login-div">
+          <form className="login-form" onSubmit={handleSubmit}>
+            <Typography variant="h6">Transfer Fund</Typography>
+            <input
+              placeholder="From Account"
+              value={transfer.fromAcc}
+              disabled
+              name="fromAcc"
+            />
+            <select required name="toAcc" onChange={handleChange}>
+              <option value="" disabled selected>
+                To Account
               </option>
-            ))}
-          </select>
-          <input
-            placeholder="Amount"
-            name="amount"
-            required
-            onChange={handleChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
+              {toBankAccounts?.map((account) => (
+                <option key={account} value={account}>
+                  {account}
+                </option>
+              ))}
+            </select>
+            <input
+              placeholder="Amount"
+              name="amount"
+              required
+              onChange={handleChange}
+            />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       </div>
     </>
   );
