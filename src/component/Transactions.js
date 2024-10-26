@@ -26,46 +26,47 @@ const Transactions = () => {
     const token = JSON.parse(localStorage.getItem("token"));
     setCurrentUser(token);
     fetchTransaction();
-  }, [transactions, fetchTransaction()]);
+  }, [transactions]);
   return (
-    <div>
+    <>
       <AppBar />
-
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Transaction ID</TableCell>
-              <TableCell align="right">From Account</TableCell>
-              <TableCell align="right">To Account</TableCell>
-              <TableCell align="right">Amount</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {transactions.map((row) => (
-              <TableRow
-                key={row.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.id}
-                </TableCell>
-                <TableCell align="right">{row.fromAcc}</TableCell>
-                <TableCell align="right">{row.toAcc}</TableCell>
-                <TableCell align="right">
-                  {row.amount}
-                  {currentUser.account == row.toAcc ? (
-                    <span style={{ color: "green" }}> Cr</span>
-                  ) : (
-                    <span style={{ color: "red" }}> Dr</span>
-                  )}
-                </TableCell>
+      <div className="container">
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Transaction ID</TableCell>
+                <TableCell align="right">From Account</TableCell>
+                <TableCell align="right">To Account</TableCell>
+                <TableCell align="right">Amount</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </div>
+            </TableHead>
+            <TableBody>
+              {transactions.map((row) => (
+                <TableRow
+                  key={row.id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.id}
+                  </TableCell>
+                  <TableCell align="right">{row.fromAcc}</TableCell>
+                  <TableCell align="right">{row.toAcc}</TableCell>
+                  <TableCell align="right">
+                    {row.amount}
+                    {currentUser.account == row.toAcc ? (
+                      <span style={{ color: "green" }}> Cr</span>
+                    ) : (
+                      <span style={{ color: "red" }}> Dr</span>
+                    )}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
+    </>
   );
 };
 

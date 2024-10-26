@@ -81,8 +81,7 @@ const UserHome = () => {
                   value={personal?.address?.houseNo}
                   onChange={handlePersonalChange}
                 />
-                <input
-                  type="textarea"
+                <textarea
                   name="streetAddress"
                   value={personal?.address?.streetAddress}
                   placeholder="Street Addresss"

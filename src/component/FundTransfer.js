@@ -50,33 +50,35 @@ const FundTransfer = () => {
   return (
     <>
       <AppBar />
-      <div className="login-div">
-        <form className="login-form" onSubmit={handleSubmit}>
-          <Typography variant="h6">Transfer Fund</Typography>
-          <input
-            placeholder="From Account"
-            value={transfer.fromAcc}
-            disabled
-            name="fromAcc"
-          />
-          <select required name="toAcc" onChange={handleChange}>
-            <option value="" disabled selected>
-              To Account
-            </option>
-            {toBankAccounts?.map((account) => (
-              <option key={account} value={account}>
-                {account}
+      <div className="container">
+        <div className="login-div">
+          <form className="login-form" onSubmit={handleSubmit}>
+            <Typography variant="h6">Transfer Fund</Typography>
+            <input
+              placeholder="From Account"
+              value={transfer.fromAcc}
+              disabled
+              name="fromAcc"
+            />
+            <select required name="toAcc" onChange={handleChange}>
+              <option value="" disabled selected>
+                To Account
               </option>
-            ))}
-          </select>
-          <input
-            placeholder="Amount"
-            name="amount"
-            required
-            onChange={handleChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
+              {toBankAccounts?.map((account) => (
+                <option key={account} value={account}>
+                  {account}
+                </option>
+              ))}
+            </select>
+            <input
+              placeholder="Amount"
+              name="amount"
+              required
+              onChange={handleChange}
+            />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       </div>
     </>
   );
