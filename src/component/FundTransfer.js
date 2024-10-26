@@ -4,16 +4,11 @@ import { useDispatch } from "react-redux";
 import AppBar from "./common/AppBar";
 import { transferFund } from "./redux/reducer/bankReducer";
 import { useNavigate } from "react-router-dom";
-import { useUsers } from "./hooks/useUsers";
 import usersContext from "./context/usersContext";
 
 const FundTransfer = () => {
-  useUsers();
   const [currentUser, setCurrentUser] = useState({});
-  // const { users } = useSelector((state) => state);
   const users = useContext(usersContext);
-  // const users = useUsers();
-  // console.log(users);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [toBankAccounts, setToBankAccounts] = useState([]);

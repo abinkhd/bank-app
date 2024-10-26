@@ -12,10 +12,14 @@ const Carousel = () => {
   }, [currImage]);
 
   return (
-    <div className="slideshow-container">
-      <div className={`slide`}>
-        {/* <p>{currImage}</p> */}
-        <img src={`bank${currImage}.jpg`} alt="Banking images"></img>
+    <div className="container">
+      <div className="slide">
+        <img
+          src={`bank${currImage}.jpg`}
+          alt="Banking images"
+          width="1100px"
+          height="320px"
+        ></img>
       </div>
     </div>
   );
