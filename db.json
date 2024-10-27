@@ -14,7 +14,7 @@
       "Branch": "Whitefeild",
       "account": 18123456701,
       "currency": "INR",
-      "balance": -100
+      "balance": 0
     },
     {
       "id": "18123456702",
@@ -30,7 +30,7 @@
       "Branch": "Bellandur",
       "account": 18123456702,
       "currency": "INR",
-      "balance": 14100
+      "balance": 14101
     },
     {
       "id": "18123456703",
@@ -62,7 +62,7 @@
       "Branch": "Whitefeild",
       "account": 18123456704,
       "currency": "INR",
-      "balance": 30000
+      "balance": 31000
     },
     {
       "id": "18123456705",
@@ -94,7 +94,7 @@
       "Branch": "Indiranagar",
       "account": 18123456706,
       "currency": "INR",
-      "balance": 1200
+      "balance": 2200
     }
   ],
   "transactions": [
@@ -153,6 +153,27 @@
       "fromAcc": 18123456701,
       "toAcc": 18123456703,
       "amount": 6000
+    },
+    {
+      "id": "80d0",
+      "userId": "18123456701",
+      "fromAcc": 18123456701,
+      "toAcc": 18123456706,
+      "amount": 1000
+    },
+    {
+      "id": "3d8c",
+      "userId": "18123456701",
+      "fromAcc": 18123456701,
+      "toAcc": 18123456702,
+      "amount": 1
+    },
+    {
+      "id": "ec2c",
+      "userId": "18123456701",
+      "fromAcc": 18123456701,
+      "toAcc": 18123456704,
+      "amount": 1000
     }
   ]
 }
