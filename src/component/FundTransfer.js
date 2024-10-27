@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AppBar from "./common/AppBar";
 import { transferFund } from "./redux/reducer/bankReducer";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import usersContext from "./context/usersContext";
 
 const FundTransfer = () => {
   const [currentUser, setCurrentUser] = useState({});
+  const currBalance = useSelector((state) => state.currentUser?.balance);
   const users = useContext(usersContext);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -28,9 +29,13 @@ const FundTransfer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(currentUser.balance);
-    dispatch(transferFund(transfer));
-    navigate("/transaction");
+    if (transfer.amount > currBalance) {
+      alert("Insufficient Balance");
+    } else {
+      console.log(currBalance);
+      dispatch(transferFund(transfer));
+      navigate("/transaction");
+    }
   };
 
   useEffect(() => {

@@ -13,20 +13,20 @@ const Transactions = () => {
   const [transactions, setTransactions] = React.useState([]);
   const [currentUser, setCurrentUser] = React.useState({});
   const URL = process.env.REACT_APP_API_URL;
-  const fetchTransaction = async () => {
+  const fetchTransaction = React.useCallback(async () => {
     const response = await axios.get(`${URL}/transactions`);
     setTransactions(
       response.data.filter(
         (data) => data.userId === currentUser.id || data.toAcc == currentUser.id
       )
     );
-  };
+  }, [URL, currentUser.id]);
 
   React.useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
     setCurrentUser(token);
     fetchTransaction();
-  }, [transactions]);
+  }, [transactions, fetchTransaction]);
   return (
     <>
       <AppBar />
