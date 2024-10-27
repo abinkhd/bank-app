@@ -14,19 +14,25 @@ const Transactions = () => {
   const [currentUser, setCurrentUser] = React.useState({});
   const URL = process.env.REACT_APP_API_URL;
   const fetchTransaction = React.useCallback(async () => {
+    if (!currentUser.id) return; // Prevent fetching if currentUser is not set
     const response = await axios.get(`${URL}/transactions`);
     setTransactions(
       response.data.filter(
         (data) => data.userId === currentUser.id || data.toAcc == currentUser.id
       )
     );
-  }, [URL, currentUser.id]);
+  }, [currentUser, URL]);
 
   React.useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
-    setCurrentUser(token);
+    if (token) {
+      setCurrentUser(token);
+    }
+  }, []);
+
+  React.useEffect(() => {
     fetchTransaction();
-  }, [transactions, fetchTransaction]);
+  }, [currentUser, fetchTransaction]); // Fetch transactions when currentUser changes
   return (
     <>
       <AppBar />
