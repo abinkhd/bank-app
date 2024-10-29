@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const Carousel = () => {
   const [currImage, setCurrImage] = useState(1);
   const totalSlides = 3;
+  // const { currentUser } = useSelector((state) => state);
 
   useEffect(() => {
     const changeSlide = setInterval(() => {

@@ -2,27 +2,15 @@ import React, { useEffect, useState } from "react";
 import AppBar from "./common/AppBar";
 import Footer from "./common/Footer";
 import { Card, Typography } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import { useDispatch } from "react-redux";
 import EditIcon from "@mui/icons-material/Edit";
 import Popup from "reactjs-popup";
 import { updateUser } from "./redux/reducer/bankReducer";
 
 const UserHome = () => {
-  const currBalance = useSelector((state) => state.currentUser?.balance);
-  const [balance, setBalance] = useState("xxxxx");
-  const [isBalanceVisible, setBalanceVisible] = useState(false);
   const dispatch = useDispatch();
   const [personal, setPersonal] = useState({});
-  const handleShowBalance = () => {
-    if (isBalanceVisible === false) {
-      setBalance(currBalance);
-      setBalanceVisible(true);
-    } else {
-      setBalanceVisible(false);
-      setBalance("xxxxx");
-    }
-  };
+
   const handlePersonalChange = (e) => {
     if (e.target.name in personal.address) {
       setPersonal((prev) => ({
@@ -60,7 +48,7 @@ const UserHome = () => {
             closeOnEscape
             arrow
           >
-            <Card className="login-div">
+            <Card className="form-div">
               <form className="login-form" onSubmit={handlePersonalSubmit}>
                 <Typography variant="h6">Update Personal Details</Typography>
                 <input
@@ -109,12 +97,6 @@ const UserHome = () => {
           <Typography>Account Number:{personal?.account}</Typography>
           <Typography>IFSC:{personal?.IFSC}</Typography>
           <Typography>Branch:{personal?.Branch}</Typography>
-          <Typography>
-            Account Balance:{balance}
-            <label onClick={handleShowBalance}>
-              <RemoveRedEyeIcon style={{ marginBottom: "-9px" }} />
-            </label>
-          </Typography>
         </Card>
       </div>
       <Footer />

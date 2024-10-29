@@ -30,15 +30,23 @@
   .container {
     width: 80%;
   }
-  .login-div {
+  .form-div {
     width: 80%;
   }
-  .login-form {
+  .form {
     width: 50%;
   }
 }
 .nav-user {
-  margin: 20px;
+  padding: 0 3rem 0 0;
+  position: relative;
+  top: 20px;
+  display: flex;
+  gap: 1em;
+}
+.nav-user > .appbarMenu {
+  background-color: #384454;
+  color: aliceblue;
 }
 .nav-user label {
   margin-right: 20px;
@@ -83,7 +91,7 @@
   padding-left: 3rem;
   background-size: cover;
 }
-.login-div {
+.form-div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,17 +101,17 @@
     2px 2px 2px 4px rgba(0, 0, 0, 0.4);
   border-radius: 2px;
 }
-.login-form {
+.form {
   display: flex;
   /* margin-top: 20px; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.login-form * {
+.form * {
   margin: 0.5em 0 0.7em 0;
 }
-.login-form h6 {
+.form h6 {
   color: #384454;
   font-family: unset;
 }
@@ -151,7 +159,11 @@ h6 {
   border-radius: 2px;
   box-shadow: 1px 1px 1px 1px#343d48, 2px 1px 2px 1px #434e5b;
 }
-.nav-user > .appbarMenu {
-  background-color: #384454;
-  color: aliceblue;
+.withdraw-div{
+  margin-bottom: 1em;
 }
+.withdraw-div input,button{
+  margin: 1em;
+}
+
+

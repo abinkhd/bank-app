@@ -68,12 +68,46 @@ const bankSlice = createSlice({
       );
       const toUserBalance = toAcc.balance + action.payload.amount;
       const toData = { balance: toUserBalance };
+
       axios.post(`${URL}/transactions`, action.payload);
       axios.patch(`${URL}/users/${action.payload.userId}`, fromData);
       axios.patch(`${URL}/users/${action.payload.toAcc}`, toData);
       return {
         ...state,
         userFundTransfer: [...state.userFundTransfer, action.payload],
+        currentUser: {
+          ...state.currentUser,
+          balance: fromCurrBalance,
+        },
+      };
+    },
+    withdrawFund: (state, action) => {
+      const fromCurrBalance = state.currentUser?.balance - action.payload;
+      console.log(state.currentUser?.balance);
+      const fromData = {
+        balance: fromCurrBalance,
+      };
+      axios.patch(`${URL}/users/${state.currentUser.id}`, fromData);
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          balance: fromCurrBalance,
+        },
+      };
+    },
+    depositFund: (state, action) => {
+      const fromCurrBalance =
+        Number(state.currentUser?.balance) + Number(action.payload);
+
+      console.log(action.payload);
+
+      const fromData = {
+        balance: fromCurrBalance,
+      };
+      axios.patch(`${URL}/users/${state.currentUser.id}`, fromData);
+      return {
+        ...state,
         currentUser: {
           ...state.currentUser,
           balance: fromCurrBalance,
@@ -90,6 +124,13 @@ const bankSlice = createSlice({
   //     });
   //   },
 });
-export const { getUsers, getUser, logout, updateUser, transferFund } =
-  bankSlice.actions;
+export const {
+  getUsers,
+  getUser,
+  logout,
+  updateUser,
+  transferFund,
+  withdrawFund,
+  depositFund,
+} = bankSlice.actions;
 export default bankSlice.reducer;
