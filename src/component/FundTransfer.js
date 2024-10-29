@@ -5,6 +5,7 @@ import AppBar from "./common/AppBar";
 import { transferFund } from "./redux/reducer/bankReducer";
 import { useNavigate } from "react-router-dom";
 import usersContext from "./context/usersContext";
+import Footer from "./common/Footer";
 
 const FundTransfer = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -56,8 +57,8 @@ const FundTransfer = () => {
     <>
       <AppBar />
       <div className="container">
-        <div className="login-div">
-          <form className="login-form" onSubmit={handleSubmit}>
+        <div className="form-div">
+          <form className="form" onSubmit={handleSubmit}>
             <Typography variant="h6">Transfer Fund</Typography>
             <input
               placeholder="From Account"
@@ -85,6 +86,7 @@ const FundTransfer = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

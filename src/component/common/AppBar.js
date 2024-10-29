@@ -3,15 +3,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { logout } from "../redux/reducer/bankReducer";
 import PersonIcon from "@mui/icons-material/Person";
-import { MenuItem, Select } from "@mui/material";
+import { MenuItem, Select, Typography } from "@mui/material";
+import { useState } from "react";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 export default function AppBar() {
   const [user, setUser] = React.useState(undefined);
+  const currBalance = useSelector((state) => state.currentUser?.balance);
+  const [balance, setBalance] = useState("xxxxx");
+  const [isBalanceVisible, setBalanceVisible] = useState(false);
   const { currentUser } = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleShowBalance = () => {
+    if (isBalanceVisible === false) {
+      setBalance(currBalance);
+      setBalanceVisible(true);
+    } else {
+      setBalanceVisible(false);
+      setBalance("xxxxx");
+    }
+  };
+
   React.useEffect(() => {
-    setUser(localStorage.getItem("token"));
+    setUser(JSON.parse(localStorage.getItem("token")));
   }, []);
   return (
     <nav className="navbar">
@@ -34,15 +50,25 @@ export default function AppBar() {
       ) : (
         <div className="nav-user">
           {/* <InputLabel id="demo-simple-select-label">Menu</InputLabel> */}
-
-          <PersonIcon sx={{ marginBottom: "-4px" }} />
-          <label>{currentUser?.name}</label>
+          <Typography>
+            Account Balance:{balance}
+            <label onClick={handleShowBalance}>
+              <RemoveRedEyeIcon style={{ marginBottom: "-9px" }} />
+            </label>
+          </Typography>
+          <div>
+            <PersonIcon sx={{ marginBottom: "-4px" }} />
+            <label>{user?.name}</label>
+          </div>
           <Select label="Menu" sx={{ height: "30px" }}>
             <MenuItem onClick={() => navigate("/fundTransfer")}>
               Fund Transfer
             </MenuItem>
             <MenuItem onClick={() => navigate("/transaction")}>
               Transaction
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/withdraw")}>
+              Withdraw/Deposit Fund
             </MenuItem>
             <MenuItem
               className="authButton"
@@ -51,7 +77,7 @@ export default function AppBar() {
                 navigate("/");
               }}
             >
-              LOGOUT
+              Logout
             </MenuItem>
           </Select>
         </div>

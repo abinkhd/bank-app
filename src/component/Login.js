@@ -42,8 +42,8 @@ const Login = () => {
     <>
       <AppBar />
       <div className="container">
-        <div className="login-div">
-          <form className="login-form" onSubmit={handleSubmit}>
+        <div className="form-div">
+          <form className="form" onSubmit={handleSubmit}>
             <LockIcon fontSize="large" sx={{ color: "#384454" }} />
             <Typography variant="h6" fontFamily={"initial"}>
               LOGIN
