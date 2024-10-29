@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
+import React, { memo, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AppBar from "./common/AppBar";
 import { transferFund } from "./redux/reducer/bankReducer";
@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import usersContext from "./context/usersContext";
 import Footer from "./common/Footer";
 
-const FundTransfer = () => {
+const FundTransfer = memo(() => {
   const [currentUser, setCurrentUser] = useState({});
   const currBalance = useSelector((state) => state.currentUser?.balance);
   const users = useContext(usersContext);
@@ -22,6 +22,7 @@ const FundTransfer = () => {
   });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setTransfer({
       ...transfer,
       [e.target.name]: Number(e.target.value),
@@ -33,7 +34,7 @@ const FundTransfer = () => {
     if (transfer.amount > currBalance) {
       alert("Insufficient Balance");
     } else {
-      console.log(currBalance);
+      console.log(transfer);
       dispatch(transferFund(transfer));
       navigate("/transaction");
     }
@@ -66,8 +67,13 @@ const FundTransfer = () => {
               disabled
               name="fromAcc"
             />
-            <select required name="toAcc" onChange={handleChange}>
-              <option value="" disabled selected>
+            <select
+              required
+              name="toAcc"
+              onChange={handleChange}
+              value={transfer.toAcc}
+            >
+              <option value="" disabled>
                 To Account
               </option>
               {toBankAccounts?.map((account) => (
@@ -89,6 +95,6 @@ const FundTransfer = () => {
       <Footer />
     </>
   );
-};
+});
 
 export default FundTransfer;

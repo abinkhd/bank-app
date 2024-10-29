@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AppBar from "./common/AppBar";
 import Footer from "./common/Footer";
 import { Card, Typography } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import EditIcon from "@mui/icons-material/Edit";
 import Popup from "reactjs-popup";
 import { updateUser } from "./redux/reducer/bankReducer";

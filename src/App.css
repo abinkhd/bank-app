@@ -159,6 +159,9 @@ h6 {
   border-radius: 2px;
   box-shadow: 1px 1px 1px 1px#343d48, 2px 1px 2px 1px #434e5b;
 }
+.withdraw-div{
+  margin-bottom: 1em;
+}
 .withdraw-div input,button{
   margin: 1em;
 }

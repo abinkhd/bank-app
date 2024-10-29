@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { memo, useContext, useState } from "react";
 import LockIcon from "@mui/icons-material/Lock";
 import { Typography } from "@mui/material";
 import AppBar from "./common/AppBar";
@@ -8,11 +8,9 @@ import Footer from "./common/Footer";
 import { useNavigate } from "react-router-dom";
 import usersContext from "./context/usersContext";
 
-const Login = () => {
+const Login = memo(() => {
   const [input, setInput] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
-  // const [currentUser, setCurrentUser] = useState(undefined);
-  // const { users } = useSelector((state) => state);
   const users = useContext(usersContext);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -70,6 +68,6 @@ const Login = () => {
       <Footer />
     </>
   );
-};
+});
 
 export default Login;

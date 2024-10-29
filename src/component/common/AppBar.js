@@ -6,12 +6,12 @@ import PersonIcon from "@mui/icons-material/Person";
 import { MenuItem, Select, Typography } from "@mui/material";
 import { useState } from "react";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-export default function AppBar() {
+const AppBar = React.memo(() => {
   const [user, setUser] = React.useState(undefined);
   const currBalance = useSelector((state) => state.currentUser?.balance);
   const [balance, setBalance] = useState("xxxxx");
   const [isBalanceVisible, setBalanceVisible] = useState(false);
-  const { currentUser } = useSelector((state) => state);
+  const currentUser = useSelector((state) => state.currentUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -84,4 +84,5 @@ export default function AppBar() {
       )}
     </nav>
   );
-}
+});
+export default AppBar;
