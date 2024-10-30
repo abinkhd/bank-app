@@ -22,7 +22,6 @@ const FundTransfer = memo(() => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
     setTransfer({
       ...transfer,
       [e.target.name]: Number(e.target.value),
