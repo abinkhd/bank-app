@@ -14,15 +14,21 @@ const Transactions = () => {
   const [transactions, setTransactions] = React.useState([]);
   const [currentUser, setCurrentUser] = React.useState({});
   const URL = process.env.REACT_APP_API_URL;
+  const [error, setError] = React.useState();
   const fetchTransaction = React.useCallback(async () => {
-    if (!currentUser.id) return; // Prevent fetching if currentUser is not set
-    const response = await axios.get(`${URL}/transactions`);
-    setTransactions(
-      response.data.filter(
-        (data) => data.userId === currentUser.id || data.toAcc == currentUser.id
-      )
-    );
-  }, [currentUser, URL]);
+    try {
+      if (!currentUser.id) return; // Prevent fetching if currentUser is not set
+      const response = await axios.get(`${URL}/transactions`);
+      setTransactions(
+        response.data.filter(
+          (data) =>
+            data.userId === currentUser.id || data.toAcc == currentUser.id
+        )
+      );
+    } catch (error) {
+      setError(error.message);
+    }
+  }, [currentUser, URL, transactions]);
 
   React.useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -38,6 +44,7 @@ const Transactions = () => {
     <>
       <AppBar />
       <div className="container">
+        {error && <p>{error}</p>}
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
