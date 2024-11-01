@@ -27,7 +27,7 @@ const AppBar = React.memo(() => {
   };
 
   React.useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem("token")));
+    setUser(JSON.parse(sessionStorage.getItem("token")));
   }, []);
   return (
     <nav className="navbar">

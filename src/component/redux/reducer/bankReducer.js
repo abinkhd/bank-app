@@ -39,7 +39,7 @@ const bankSlice = createSlice({
       };
     },
     logout: (state, action) => {
-      localStorage.removeItem("token");
+      sessionStorage.removeItem("token");
       return { ...state, currentUser: null };
     },
     updateUser: (state, action) => {
