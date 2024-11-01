@@ -91,9 +91,9 @@ const bankSlice = createSlice({
       };
       axios.patch(`${URL}/users/${state.currentUser.id}`, fromData);
       axios.post(`${URL}/transactions`, {
-        userId: state.currentUser,
-        fromAcc: state.currentUser,
-        toAcc: null,
+        userId: state.currentUser.id,
+        fromAcc: state.currentUser.id,
+        toAcc: "Withdraw",
         transaction_type: "Debit",
         amount: action.payload,
       });
@@ -116,9 +116,9 @@ const bankSlice = createSlice({
       };
       axios.patch(`${URL}/users/${state.currentUser.id}`, fromData);
       axios.post(`${URL}/transactions`, {
-        userId: state.currentUser,
-        fromAcc: state.currentUser,
-        toAcc: state.currentUser,
+        userId: state.currentUser.id,
+        fromAcc: state.currentUser.id,
+        toAcc: "Deposit",
         transaction_type: "Credit",
         amount: action.payload,
       });

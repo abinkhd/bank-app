@@ -67,7 +67,8 @@ const Transactions = () => {
                   <TableCell align="right">{row.toAcc}</TableCell>
                   <TableCell align="right">
                     {row.amount}
-                    {currentUser.account == row.toAcc ? (
+                    {currentUser.account == row.toAcc ||
+                    row.transaction_type === "Credit" ? (
                       <span style={{ color: "green" }}> Cr</span>
                     ) : (
                       <span style={{ color: "red" }}> Dr</span>
