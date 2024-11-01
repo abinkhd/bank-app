@@ -11,13 +11,16 @@ const Withdraw = memo(() => {
   const dispatch = useDispatch();
   const handleWithdraw = (e) => {
     e.preventDefault();
+
     currBalance < withdrawAmount
       ? alert("Insufficient Balance")
       : dispatch(withdrawFund(withdrawAmount));
+    setWithdrawAmount(0);
   };
   const handleDeposit = (e) => {
     e.preventDefault();
     dispatch(depositFund(depositAmount));
+    setDepositAmount(0);
   };
   return (
     <>
@@ -28,6 +31,7 @@ const Withdraw = memo(() => {
           <div className="withdraw-div">
             <input
               name="withdraw"
+              value={withdrawAmount}
               onChange={(e) => setWithdrawAmount(e.target.value)}
               placeholder="Withdraw Amount"
               required
@@ -40,6 +44,7 @@ const Withdraw = memo(() => {
           <div className="withdraw-div ">
             <input
               name="deposit"
+              value={depositAmount}
               onChange={(e) => setDepositAmount(e.target.value)}
               placeholder="Deposit Amount"
               required
