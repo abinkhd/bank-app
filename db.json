@@ -111,6 +111,38 @@
       "fromAcc": 18123456701,
       "toAcc": 18123456702,
       "amount": 200
+    },
+    {
+      "id": "4d7a",
+      "userId": "18123456701",
+      "fromAcc": "18123456701",
+      "toAcc": "Withdraw",
+      "transaction_type": "Debit",
+      "amount": "100"
+    },
+    {
+      "id": "04f7",
+      "userId": "18123456701",
+      "fromAcc": "18123456701",
+      "toAcc": "Deposit",
+      "transaction_type": "Credit",
+      "amount": "200"
+    },
+    {
+      "id": "194a",
+      "userId": "18123456702",
+      "fromAcc": "18123456702",
+      "toAcc": "Deposit",
+      "transaction_type": "Credit",
+      "amount": "100"
+    },
+    {
+      "id": "14ae",
+      "userId": "18123456702",
+      "fromAcc": "18123456702",
+      "toAcc": "Withdraw",
+      "transaction_type": "Debit",
+      "amount": "100"
     }
   ]
 }
