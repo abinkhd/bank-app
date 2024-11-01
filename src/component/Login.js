@@ -6,12 +6,12 @@ import { useDispatch } from "react-redux";
 import { getUser } from "./redux/reducer/bankReducer";
 import Footer from "./common/Footer";
 import { useNavigate } from "react-router-dom";
-import usersContext from "./context/usersContext";
-
+import { useUsers } from "./hooks/useUsers";
 const Login = memo(() => {
   const [input, setInput] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
-  const users = useContext(usersContext);
+  // const users = useContext(usersContext);
+  const users = useUsers();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleChange = (e) => {
