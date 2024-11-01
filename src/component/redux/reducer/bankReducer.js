@@ -69,7 +69,9 @@ const bankSlice = createSlice({
       const toUserBalance = toAcc.balance + action.payload.amount;
       const toData = { balance: toUserBalance };
 
-      axios.post(`${URL}/transactions`, action.payload);
+      axios.post(`${URL}/transactions`, {
+        ...action.payload,
+      });
       axios.patch(`${URL}/users/${action.payload.userId}`, fromData);
       axios.patch(`${URL}/users/${action.payload.toAcc}`, toData);
       return {
@@ -88,6 +90,13 @@ const bankSlice = createSlice({
         balance: fromCurrBalance,
       };
       axios.patch(`${URL}/users/${state.currentUser.id}`, fromData);
+      axios.post(`${URL}/transactions`, {
+        userId: state.currentUser,
+        fromAcc: state.currentUser,
+        toAcc: null,
+        transaction_type: "Debit",
+        amount: action.payload,
+      });
       return {
         ...state,
         currentUser: {
@@ -106,6 +115,13 @@ const bankSlice = createSlice({
         balance: fromCurrBalance,
       };
       axios.patch(`${URL}/users/${state.currentUser.id}`, fromData);
+      axios.post(`${URL}/transactions`, {
+        userId: state.currentUser,
+        fromAcc: state.currentUser,
+        toAcc: state.currentUser,
+        transaction_type: "Credit",
+        amount: action.payload,
+      });
       return {
         ...state,
         currentUser: {

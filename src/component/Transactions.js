@@ -28,7 +28,7 @@ const Transactions = () => {
     } catch (error) {
       setError(error.message);
     }
-  }, [currentUser, URL, transactions]);
+  }, [currentUser, URL]);
 
   React.useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -44,7 +44,6 @@ const Transactions = () => {
     <>
       <AppBar />
       <div className="container">
-        {error && <p>{error}</p>}
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
