@@ -31,7 +31,7 @@ const Transactions = () => {
   }, [currentUser, URL]);
 
   React.useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("token"));
+    const token = JSON.parse(sessionStorage.getItem("token"));
     if (token) {
       setCurrentUser(token);
     }

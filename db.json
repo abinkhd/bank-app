@@ -5,7 +5,7 @@
       "username": "user1",
       "password": "password1",
       "phone": "8921537583",
-      "name": "Abhin Krishna ",
+      "name": "Abhin Krishna1",
       "address": {
         "houseNo": "#26",
         "streetAddress": "Majunatha Layout,Victorian Meadow,Munnekollal,560037"
@@ -14,7 +14,7 @@
       "Branch": "Whitefeild",
       "account": 18123456701,
       "currency": "INR",
-      "balance": 700
+      "balance": 500
     },
     {
       "id": "18123456702",
@@ -30,7 +30,7 @@
       "Branch": "Bellandur",
       "account": 18123456702,
       "currency": "INR",
-      "balance": 1300
+      "balance": 1400
     },
     {
       "id": "18123456703",
@@ -94,7 +94,7 @@
       "Branch": "Indiranagar",
       "account": 18123456706,
       "currency": "INR",
-      "balance": 1000
+      "balance": 1100
     }
   ],
   "transactions": [
@@ -143,6 +143,20 @@
       "toAcc": "Withdraw",
       "transaction_type": "Debit",
       "amount": "100"
+    },
+    {
+      "id": "0e6a",
+      "userId": "18123456701",
+      "fromAcc": 18123456701,
+      "toAcc": 18123456702,
+      "amount": 100
+    },
+    {
+      "id": "8aba",
+      "userId": "18123456701",
+      "fromAcc": 18123456701,
+      "toAcc": 18123456706,
+      "amount": 100
     }
   ]
 }
