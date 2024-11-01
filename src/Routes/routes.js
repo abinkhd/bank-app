@@ -6,10 +6,16 @@ import Login from "../component/Login";
 import FundTransfer from "../component/FundTransfer";
 import Transactions from "../component/Transactions";
 import Withdraw from "../component/Withdraw";
+import PublicRoutes from "./PublicRoutes";
 
 const routes = createBrowserRouter([
-  { path: "/", element: <Home /> },
-  { path: "/login", element: <Login /> },
+  {
+    element: <PublicRoutes />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/login", element: <Login /> },
+    ],
+  },
   {
     element: <PrivateRoutes />,
     children: [
