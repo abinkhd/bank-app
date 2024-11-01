@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AppBar from "./common/AppBar";
 import Footer from "./common/Footer";
 import { Card, Typography } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import EditIcon from "@mui/icons-material/Edit";
 import Popup from "reactjs-popup";
 import { updateUser } from "./redux/reducer/bankReducer";
@@ -10,6 +10,7 @@ import { updateUser } from "./redux/reducer/bankReducer";
 const UserHome = () => {
   const dispatch = useDispatch();
   const [personal, setPersonal] = useState({});
+  const user = useSelector((state) => state.currentUser);
 
   const handlePersonalChange = (e) => {
     if (e.target.name in personal.address) {
@@ -33,7 +34,7 @@ const UserHome = () => {
   };
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("token"));
+    const token = JSON.parse(sessionStorage.getItem("token"));
     setPersonal(token);
   }, []);
   return (
@@ -81,22 +82,22 @@ const UserHome = () => {
             </Card>
           </Popup>
 
-          <Typography>Name:{personal?.name}</Typography>
-          <Typography>Phone:{personal?.phone}</Typography>
+          <Typography>Name:{user?.name}</Typography>
+          <Typography>Phone:{user?.phone}</Typography>
 
           <Typography variant="h6">
             Address Details{" "}
-            <Typography>House No:{personal?.address?.houseNo}</Typography>
+            <Typography>House No:{user?.address?.houseNo}</Typography>
             <Typography>
-              Street Address:{personal?.address?.streetAddress}
+              Street Address:{user?.address?.streetAddress}
             </Typography>
           </Typography>
         </Card>
         <Card className="account-details">
           <Typography variant="h6">Account Details</Typography>
-          <Typography>Account Number:{personal?.account}</Typography>
-          <Typography>IFSC:{personal?.IFSC}</Typography>
-          <Typography>Branch:{personal?.Branch}</Typography>
+          <Typography>Account Number:{user?.account}</Typography>
+          <Typography>IFSC:{user?.IFSC}</Typography>
+          <Typography>Branch:{user?.Branch}</Typography>
         </Card>
       </div>
       <Footer />

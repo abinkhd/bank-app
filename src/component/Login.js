@@ -28,7 +28,7 @@ const Login = memo(() => {
 
     if (user) {
       console.log(user);
-      localStorage.setItem("token", JSON.stringify(user));
+      sessionStorage.setItem("token", JSON.stringify(user));
       setError("");
       navigate("/userHome");
     } else {
