@@ -7,6 +7,7 @@ body{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .navbar{
@@ -87,8 +88,6 @@ body{
 .dropdown-appBar svg:hover{
   color: #000000;
 }
-
-
 
 .slide {
   width: 1020px;
