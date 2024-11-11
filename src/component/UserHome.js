@@ -45,12 +45,12 @@ const UserHome = () => {
           <Typography variant="h6">Personal Details</Typography>
           <Popup
             trigger={<EditIcon className="edit-icon" />}
-            position={"center right"}
+            position="right top"
             closeOnEscape
             arrow
           >
-            <Card className="form-div">
-              <form className="login-form" onSubmit={handlePersonalSubmit}>
+            <Card className="popup-form-div">
+              <form className="form" onSubmit={handlePersonalSubmit}>
                 <Typography variant="h6">Update Personal Details</Typography>
                 <input
                   name="name"

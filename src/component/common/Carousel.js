@@ -15,12 +15,14 @@ const Carousel = () => {
   return (
     <div className="container">
       <div className="slide">
-        <img
-          src={`bank${currImage}.jpg`}
-          alt="Banking images"
-          width="1100px"
-          height="320px"
-        ></img>
+        <div className="slide-border">
+          <img
+            src={`bank${currImage}.jpg`}
+            alt="Banking images"
+            width="1100px"
+            height="320px"
+          ></img>
+        </div>
       </div>
     </div>
   );

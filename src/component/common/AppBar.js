@@ -52,15 +52,21 @@ const AppBar = React.memo(() => {
           {/* <InputLabel id="demo-simple-select-label">Menu</InputLabel> */}
           <Typography>
             Account Balance:{balance}
-            <label onClick={handleShowBalance}>
-              <RemoveRedEyeIcon style={{ marginBottom: "-9px" }} />
+            <label className="balance_icon" onClick={handleShowBalance}>
+              <RemoveRedEyeIcon
+                style={{ height: "20px", marginBottom: "-6px" }}
+              />
             </label>
           </Typography>
           <div>
             <PersonIcon sx={{ marginBottom: "-4px" }} />
             <label>{user?.name}</label>
           </div>
-          <Select label="Menu" sx={{ height: "30px" }}>
+          <Select
+            className="dropdown-appBar"
+            label="Menu"
+            sx={{ height: "30px" }}
+          >
             <MenuItem onClick={() => navigate("/fundTransfer")}>
               Fund Transfer
             </MenuItem>
